@@ -40,7 +40,7 @@ ethernet _first_ {
 # }
 
 disk "/" {
-        format = " DISK (/): %used / %avail "
+        format = " DISK (/): %used / %total "
 }
 
 load {
@@ -57,9 +57,9 @@ cpu_usage {
 }
 
 memory {
-        format = " MEMORY: %used / %available "
+        format = " MEMORY: %used / %total "
         threshold_degraded = "1G"
-        format_degraded = "MEMORY < %available"
+        format_degraded = "MEMORY < %total"
 }
 
 tztime local {
