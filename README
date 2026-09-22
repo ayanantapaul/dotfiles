@@ -1,6 +1,5 @@
 - ly display manager 
-  A lightweight, text-mode display manager (also referred to as a greeter) for 
-  Linux and BSD systems
+  A lightweight, text-mode display manager (also referred to as a greeter) for Linux and BSD systems
 
 - i3 window manager 
   Lightweight tiling window manager for X11 window system
@@ -9,13 +8,10 @@
   Official i3 status bar that ships with i3 out of the box 
 
 - picom
-  A lightweight, standalone compositor for X11 windowing system (used to add 
-  visual effects and fix rendering issues for window mangers that lack built-in 
-  compositing)
+  A lightweight, standalone compositor for X11 windowing system (used to add visual effects and fix rendering issues for window mangers that lack built-in compositing)
 
 - kitty
-  Free, open-source, GPU-accelerated terminal emulator designed for speed, 
-  extensibility, and power users who prefer keyboard-centric workflows
+  Free, open-source, GPU-accelerated terminal emulator designed for speed, extensibility, and power users who prefer keyboard-centric workflows
 
 - neovim (nvim)
   Terminal text editor
@@ -24,8 +20,7 @@
   High-performance command line tool used to view system information
 
 - cmatrix 
-  A popular, open-source terminal-based program that simulates the iconic 
-  "digital rain" falling green code effect
+  A popular, open-source terminal-based program that simulates the iconic "digital rain" falling green code effect
 
 - neomutt 
   Terminal based email client 
@@ -37,8 +32,7 @@
   Mostly I use either Brave or Firefox, but qutebrowser is also a option 
 
 - nautilus 
-  A graphical file explorer which is mostly used for gnome but i use it, as it 
-  looks good
+  A graphical file explorer which is mostly used for gnome but i use it, as it looks good
 
-- code ("vs code oss" from the official archlinux repository)
-  Visual Studio Code is a free, open-source, and lightweight code editor 
+- code 
+  Visual Studio Code is a free, open-source, and lightweight code editor ("vs code oss" from the official archlinux repository)
