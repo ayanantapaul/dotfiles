@@ -29,7 +29,10 @@
   A cross-platform, interactive process viewer
 
 - lsusb (provided by usbutils in arch linux core repository)
-   A command-line utility in Linux used to list and display information about USB buses and the devices connected to them
+  A command-line utility in Linux used to list and display information about USB buses and the devices connected to them
+
+- evince 
+  document viewer
 
 - browser 
   Mostly I use either Brave or Firefox, but qutebrowser is also a option 
