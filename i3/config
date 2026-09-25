@@ -13,6 +13,8 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
+# font pango:IosevkaTerm Nerd Font 10
+# font pango:Iosevka Nerd Font 10
 font pango:JetBrains Mono Nerd Font 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -35,7 +37,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # exec --no-startup-id nm-applet
 
 # Set background with feh 
-exec --no-startup-id feh --bg-scale /home/ayan/.config/i3/wallpapers/earth.jpg
+exec --no-startup-id feh --bg-scale /home/ayan/.config/wallpapers/miyamoto_musashi.jpgA
 
 # Automatically launch picom with fading enabled
 exec_always --no-startup-id killall -q picom; picom --config ~/.config/picom/picom.conf -b
@@ -47,21 +49,27 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
+# -----------------------------------------------------------------------------
+# Terminal (kitty)
+# -----------------------------------------------------------------------------
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+
+# -----------------------------------------------------------------------------
+# Browser (brave)
+# -----------------------------------------------------------------------------
 
 # open browser 
 bindsym $mod+b exec brave
 
-# kill focused window
-bindsym $mod+Shift+q kill
+# -----------------------------------------------------------------------------
+# Program Launcher (rofi)
+# -----------------------------------------------------------------------------
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id rofi -show drun
@@ -71,6 +79,29 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-deasktop
+
+# -----------------------------------------------------------------------------
+# Screenshot (flameshot)
+# -----------------------------------------------------------------------------
+
+# PrintScreen = full screen capture, saved to file
+bindsym Print exec --no-startup-id flameshot full -p ~/Pictures/Screenshots
+
+# Shift+PrintScreen = GUI region select (like GNOME's "select area")
+bindsym Shift+Print exec --no-startup-id flameshot gui
+
+# Ctrl+PrintScreen = capture active window
+bindsym Ctrl+Print exec --no-startup-id flameshot screen
+
+# -----------------------------------------------------------------------------
+# Window related keybindings
+# -----------------------------------------------------------------------------
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# kill focused window
+bindsym $mod+Shift+q kill
 
 # change focus
 bindsym $mod+h focus left
@@ -120,7 +151,11 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+# bindsym $mod+d focus child
+
+# -----------------------------------------------------------------------------
+# Workspace related keybindings 
+# -----------------------------------------------------------------------------
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -159,12 +194,20 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+# -----------------------------------------------------------------------------
+# Reload, Restart or Exit i3
+# -----------------------------------------------------------------------------
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# -----------------------------------------------------------------------------
+# Resize Windows (after entering "resize" mode)
+# -----------------------------------------------------------------------------
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -193,6 +236,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# -----------------------------------------------------------------------------
+# i3 Status 
+# -----------------------------------------------------------------------------
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -205,9 +252,12 @@ bar {
 
 }
 
+# -----------------------------------------------------------------------------
+# Visual Effects (that are integrated with i3)
+# -----------------------------------------------------------------------------
+
 # Set inner gaps (spacing between windows)
 gaps inner 10
-
 # Set outer gaps (spacing between windows and the screen edge)
 gaps outer 5
 
