@@ -81,17 +81,13 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-deasktop
 
 # -----------------------------------------------------------------------------
-# Screenshot (flameshot)
+# Screenshot 
 # -----------------------------------------------------------------------------
 
-# PrintScreen = full screen capture, saved to file
-bindsym Print exec --no-startup-id flameshot full -p ~/Pictures/Screenshots
-
-# Shift+PrintScreen = GUI region select (like GNOME's "select area")
-bindsym Shift+Print exec --no-startup-id flameshot gui
-
-# Ctrl+PrintScreen = capture active window
-bindsym Ctrl+Print exec --no-startup-id flameshot screen
+bindsym Print exec --no-startup-id ~/.config/i3/scripts/screenshot.sh full
+bindsym Shift+Print exec --no-startup-id ~/.config/i3/scripts/screenshot.sh select
+bindsym Ctrl+Print exec --no-startup-id ~/.config/i3/scripts/screenshot.sh window
+bindsym $mod+Print exec --no-startup-id ~/.config/i3/scripts/screenshot.sh select-clip
 
 # -----------------------------------------------------------------------------
 # Window related keybindings
