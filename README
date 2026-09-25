@@ -8,6 +8,8 @@
 - cmatrix (matrix rain)
 - neomutt (terminal email client)
 - htop (terminal based nerdy looking system stats viewer)
+- maim, xclip, libnotify, xdotool (provides features like region select, clipboard copy, notification popup, annotation)
+- dunst (notification daemon)
 - lsusb (provided by usbutils in arch linux core repository)
 - evince (gui document viewer)
 - browser (brave, firefox, qutebrowser)
