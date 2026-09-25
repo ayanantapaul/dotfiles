@@ -141,6 +141,7 @@ vim.pack.add({
   { src = "https://github.com/MunifTanjim/nui.nvim" },
   { src = "https://github.com/nvim-tree/nvim-web-devicons" },
   { src = "https://github.com/nvim-neo-tree/neo-tree.nvim" },
+  { src = "https://github.com/nvim-lualine/lualine.nvim" },
 })
 
 ----------------------------------------------------------------------------------------------------
@@ -209,3 +210,21 @@ require("neo-tree").setup({
 })
 
 ----------------------------------------------------------------------------------------------------
+
+-- Lualine 
+require("lualine").setup({
+  options = {
+    theme = "auto",  -- auto-detects from your active colorscheme (monokai)
+    section_separators = { left = "", right = "" },
+    component_separators = { left = "│", right = "│" },
+    globalstatus = true,  -- single statusline across all splits, not one per window
+  },
+  sections = {
+    lualine_a = { "mode" },
+    lualine_b = { "branch", "diff" },
+    lualine_c = { "filename" },
+    lualine_x = { "diagnostics", "filetype" },
+    lualine_y = { "progress" },
+    lualine_z = { "location" },
+  },
+})
