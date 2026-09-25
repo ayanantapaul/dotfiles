@@ -136,7 +136,11 @@ end
 
 vim.pack.add({
   { src = "https://github.com/tanvirtin/monokai.nvim" },
-  { src = "https://github.com/lewis6991/gitsigns.nvim" }
+  { src = "https://github.com/lewis6991/gitsigns.nvim" },
+  { src = "https://github.com/nvim-lua/plenary.nvim" },
+  { src = "https://github.com/MunifTanjim/nui.nvim" },
+  { src = "https://github.com/nvim-tree/nvim-web-devicons" },
+  { src = "https://github.com/nvim-neo-tree/neo-tree.nvim" },
 })
 
 ----------------------------------------------------------------------------------------------------
@@ -161,11 +165,11 @@ vim.api.nvim_set_hl(0, "LineNr", { bg = "#000000" })
 -- Gitsigns 
 require("gitsigns").setup({
   signs = {
-    add          = { text = "│" },
-    change       = { text = "│" },
-    delete       = { text = "_" },
+    add          = { text = "+" },
+    change       = { text = "~" },
+    delete       = { text = "x" },
     topdelete    = { text = "‾" },
-    changedelete = { text = "~" },
+    changedelete = { text = ">" },
     untracked    = { text = "┆" },
   },
 })
@@ -186,6 +190,35 @@ vim.diagnostic.config({
   underline = true,
   update_in_insert = false,
   severity_sort = true,
+})
+
+----------------------------------------------------------------------------------------------------
+
+-- Neotree
+require("neo-tree").setup({
+  close_if_last_window = true,
+  filesystem = {
+    follow_current_file = { enabled = true },
+    hijack_netrw_behavior = "open_default", -- replaces netrw when you open a directory
+    filtered_items = {
+      visible = false,       -- set true if you want dotfiles/hidden shown by default
+      hide_dotfiles = false,
+      hide_gitignored = false,
+    },
+  },
+  git_status = {
+    symbols = {
+      added     = "A",
+      modified  = "M",
+      deleted   = "D",
+      renamed   = "R",
+      untracked = "?",
+      ignored   = "!",
+      unstaged  = "U",
+      staged    = "S",
+      conflict  = "C",
+    },
+  },
 })
 
 ----------------------------------------------------------------------------------------------------
