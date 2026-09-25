@@ -87,7 +87,7 @@ vim.keymap.set('n', '<leader>e', ':Neotree toggle<CR>', { desc = 'Toggle file ex
 -- Keymaps to jump between errors
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)  -- show error under cursor
+vim.keymap.set("n", "<leader>c", vim.diagnostic.open_float)  -- show error under cursor
 
 ----------------------------------------------------------------------------------------------------
 -- plugin manager (vim.pack)
@@ -204,19 +204,6 @@ require("neo-tree").setup({
       visible = false,       -- set true if you want dotfiles/hidden shown by default
       hide_dotfiles = false,
       hide_gitignored = false,
-    },
-  },
-  git_status = {
-    symbols = {
-      added     = "A",
-      modified  = "M",
-      deleted   = "D",
-      renamed   = "R",
-      untracked = "?",
-      ignored   = "!",
-      unstaged  = "U",
-      staged    = "S",
-      conflict  = "C",
     },
   },
 })
