@@ -84,6 +84,11 @@ vim.g.mapleader = ' '					-- set <space> as the local leader
 vim.g.maplocalleader = ' '				-- set <space> as the map local leader 
 vim.keymap.set('n', '<leader>e', ':Neotree toggle<CR>', { desc = 'Toggle file explorer' }) -- file explorer : Neotree
 
+-- Keymaps to jump between errors
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)  -- show error under cursor
+
 ----------------------------------------------------------------------------------------------------
 -- plugin manager (vim.pack)
 ----------------------------------------------------------------------------------------------------
@@ -129,4 +134,58 @@ end
 -- plugins 
 ----------------------------------------------------------------------------------------------------
 
--- no plugins added
+vim.pack.add({
+  { src = "https://github.com/tanvirtin/monokai.nvim" },
+  { src = "https://github.com/lewis6991/gitsigns.nvim" }
+})
+
+----------------------------------------------------------------------------------------------------
+
+-- Colorscheme (monokai)
+local ok = pcall(vim.cmd.colorscheme, "monokai")
+if not ok then
+  vim.notify("colorscheme not found, falling back to default", vim.log.levels.WARN)
+  vim.cmd.colorscheme("default")
+end
+
+vim.cmd.colorscheme("monokai")
+
+-- Force pure black background
+vim.api.nvim_set_hl(0, "Normal", { bg = "#000000" })
+vim.api.nvim_set_hl(0, "NormalNC", { bg = "#000000" })
+vim.api.nvim_set_hl(0, "SignColumn", { bg = "#000000" })
+vim.api.nvim_set_hl(0, "LineNr", { bg = "#000000" })
+
+----------------------------------------------------------------------------------------------------
+
+-- Gitsigns 
+require("gitsigns").setup({
+  signs = {
+    add          = { text = "│" },
+    change       = { text = "│" },
+    delete       = { text = "_" },
+    topdelete    = { text = "‾" },
+    changedelete = { text = "~" },
+    untracked    = { text = "┆" },
+  },
+})
+
+----------------------------------------------------------------------------------------------------
+
+vim.lsp.config("clangd", {
+  cmd = { "clangd", "--background-index", "--clang-tidy" },
+  filetypes = { "c", "cpp", "objc", "objcpp" },
+  root_markers = { "compile_commands.json", "compile_flags.txt", ".git" },
+})
+
+vim.lsp.enable("clangd")
+
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+})
+
+----------------------------------------------------------------------------------------------------
